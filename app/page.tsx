@@ -344,48 +344,54 @@ export default function Home() {
                   </div>
 
                   <div className={styles.problem}>
-                    <div className={styles.sum}>
-                      <div className={styles.digits}>
-                        <span className={styles.sign}></span>
-                        <span>{Math.floor(exercise.first / 10)}</span>
-                        <span>{exercise.first % 10}</span>
-                      </div>
+  <div className={styles.additionTable}>
+    <div className={styles.plusCell}>+</div>
 
-                      <div className={styles.digits}>
-                        <span className={styles.sign}>+</span>
-                        <span>{Math.floor(exercise.second / 10)}</span>
-                        <span>{exercise.second % 10}</span>
-                      </div>
+    <div className={styles.numberColumn}>
+      <div className={styles.numberCell}>
+        {Math.floor(exercise.first / 10)}
+      </div>
+      <div className={styles.numberCell}>
+        {Math.floor(exercise.second / 10)}
+      </div>
+    </div>
 
-                      <div className={styles.answerLine}></div>
+    <div className={styles.numberColumn}>
+      <div className={styles.numberCell}>
+        {exercise.first % 10}
+      </div>
+      <div className={styles.numberCell}>
+        {exercise.second % 10}
+      </div>
+    </div>
 
-                      <div className={styles.answerRow}>
-                        <span></span>
+    <div className={styles.answerCell}></div>
+    <div className={styles.answerCell}></div>
 
-                        <input
-                          type="text"
-                          inputMode="numeric"
-                          value={answer}
-                          onChange={(event) =>
-                            setAnswer(event.target.value.replace(/\D/g, ""))
-                          }
-                          onKeyDown={(event) => {
-                            if (event.key === "Enter") {
-                              if (checked) {
-                                nextExercise();
-                              } else {
-                                checkAnswer();
-                              }
-                            }
-                          }}
-                          disabled={checked}
-                          placeholder="?"
-                          aria-label="Введіть суму"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
+    <div className={styles.answerCell}>
+      <input
+        type="text"
+        inputMode="numeric"
+        value={answer}
+        onChange={(event) =>
+          setAnswer(event.target.value.replace(/\D/g, ""))
+        }
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            if (checked) {
+              nextExercise();
+            } else {
+              checkAnswer();
+            }
+          }
+        }}
+        disabled={checked}
+        placeholder="?"
+        aria-label="Введіть суму"
+      />
+    </div>
+  </div>
+</div>
                   {message && (
                     <div
                       className={`${styles.feedback} ${

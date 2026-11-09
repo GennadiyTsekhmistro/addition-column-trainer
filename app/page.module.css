@@ -196,7 +196,7 @@
   height: 22px;
 }
 
-/* Приклад додавання */
+/* Таблиця письмового додавання */
 
 .problem {
   display: flex;
@@ -204,47 +204,101 @@
   margin: 35px 0;
 }
 
-.sum {
-  width: 130px;
-  font-size: 32px;
-  font-weight: 600;
-}
-
-.digits {
+.additionTable {
+  position: relative;
   display: grid;
-  grid-template-columns: 30px 40px 40px;
-  text-align: center;
-  line-height: 1.4;
+  grid-template-columns: 60px 60px 60px;
+  grid-template-rows: 100px 50px;
+  width: 180px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #222222;
 }
 
-.sign {
-  text-align: center;
-}
-
-.answerLine {
+.additionTable::after {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
   height: 2px;
   background: #222222;
-  margin: 5px 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.answerRow {
+.plusCell {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c9c9c9;
+}
+
+.numberColumn {
+  grid-row: 1;
   display: grid;
-  grid-template-columns: 30px 80px;
+  grid-template-rows: 1fr 1fr;
+  border: 1px solid #c9c9c9;
+  margin-left: -1px;
 }
 
-.answerRow input {
-  width: 80px;
-  height: 45px;
-  border: 1px solid #888888;
-  border-radius: 4px;
-  text-align: center;
-  font-size: 25px;
+.numberCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.numberCell + .numberCell {
+  border-top: 1px solid #c9c9c9;
+}
+
+.answerCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c9c9c9;
+  grid-row: 2;
+}
+
+.additionTable > .answerCell:nth-child(4) {
+  grid-column: 1;
+}
+
+.additionTable > .answerCell:nth-child(5) {
+  grid-column: 2;
+  margin-left: -1px;
+}
+
+.additionTable > .answerCell:nth-child(6) {
+  grid-column: 3;
+  margin-left: -1px;
+}
+
+.answerCell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: #222222;
+}
+
+.answerCell input::placeholder {
+  color: #222222;
+  opacity: 1;
+}
+
+/* Кнопки та результати */
 
 .primaryButton {
-  padding: 12px 25px;
+  padding: 12px 28px;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   background: #2879d0;
   color: #ffffff;
   font-size: 16px;
@@ -252,53 +306,35 @@
 }
 
 .primaryButton:hover {
-  background: #1d62ad;
+  background: #1e65b2;
+}
+
+.primaryButton:disabled {
+  background: #aaaaaa;
+  cursor: not-allowed;
 }
 
 .feedback {
-  margin: 20px 0;
-  padding: 12px;
-  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .correct {
-  background: #e5f5e9;
-  color: #16803c;
+  color: #218838;
 }
 
 .incorrect {
-  background: #fde9e9;
-  color: #c62828;
+  color: #dc3545;
 }
 
-.statistics {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f5f5f5;
-  border-radius: 6px;
-  line-height: 1.8;
-}
+/* Адаптація для мобільних пристроїв */
 
-.finished {
-  padding: 20px 0;
-  line-height: 1.7;
-}
-
-.actions {
-  margin-top: 20px;
-}
-
-.footer {
-  padding: 25px;
-  background: #f5f5f5;
-  text-align: center;
-  color: #666666;
-}
-
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .headerInner {
     flex-direction: column;
     align-items: flex-start;
+    padding: 16px;
   }
 
   .navigation {
@@ -306,7 +342,7 @@
   }
 
   .container {
-    padding: 20px 15px 35px;
+    padding: 20px 16px 35px;
   }
 
   .container h1 {
@@ -315,6 +351,16 @@
 
   .exerciseContent,
   .instruction {
-    padding: 18px;
+    padding: 16px;
+  }
+
+  .numericKeyboard {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .numericKey {
+    height: 55px;
   }
 }
