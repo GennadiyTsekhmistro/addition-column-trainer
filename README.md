@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Тренажер письмового додавання двозначних чисел
 
-## Getting Started
+Навчальний вебзастосунок для тренування навичок письмового додавання двозначних чисел у стовпчик.
 
-First, run the development server:
+Проєкт допомагає учням практикувати обчислення, перевіряти правильність відповідей та оцінювати результати виконання вправ.
+
+## Технології
+
+- **Next.js 16** — React-фреймворк для створення вебзастосунку.
+- **React 19** — бібліотека для побудови інтерфейсу.
+- **TypeScript** — типізація JavaScript.
+- **CSS Modules** — стилізація компонентів.
+
+## Реалізовані можливості
+
+- Навчальна сторінка з описом призначення тренажера.
+- Розділ із вправами та інструкціями.
+- Тренування письмового додавання двозначних чисел.
+- Виконання серії з п'яти прикладів.
+- Введення відповідей за допомогою клавіатури.
+- Перевірка правильності відповідей.
+- Відображення результатів виконання вправ.
+- Нарахування балів залежно від часу виконання завдання.
+- Підсумковий результат після завершення п'яти вправ.
+- Можливість повторного проходження тренування.
+- Ілюстративна цифрова клавіатура в інструкції.
+- Таблиця письмового додавання з окремими клітинками для цифр, знаком додавання та полем введення відповіді.
+- Адаптація інтерфейсу для мобільних пристроїв.
+
+## Система оцінювання
+
+Кількість балів залежить від часу виконання кожного завдання:
+
+| Час виконання       | Бали |
+|:--------------------|-----:|
+| Менше 30 секунд     | 10   |
+| 30–45 секунд        | 9    |
+| 46–60 секунд        | 8    |
+| Понад 60 секунд     | 7    |
+
+## Структура проєкту
+
+```text
+addition-column-trainer/
+├── app/
+│   ├── page.tsx
+│   ├── page.module.css
+│   └── layout.tsx
+├── public/
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── next.config.ts
+└── README.md
+```
+
+### Основні файли
+
+- `app/page.tsx` — основна сторінка тренажера та його логіка.
+- `app/page.module.css` — стилі та оформлення інтерфейсу.
+- `app/layout.tsx` — кореневий макет застосунку.
+- `README.md` — документація проєкту.
+
+## Запуск проєкту локально
+
+### 1. Клонування репозиторію
+
+```bash
+git clone https://github.com/GennadiyTsekhmistro/addition-column-trainer.git
+```
+
+### 2. Перехід до папки проєкту
+
+```bash
+cd addition-column-trainer
+```
+
+### 3. Встановлення залежностей
+
+```bash
+npm install
+```
+
+### 4. Запуск сервера розробки
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Відкрий у браузері:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+[http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Перевірка TypeScript
 
-## Learn More
+Для перевірки типів виконай:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx tsc --noEmit
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## GitHub
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Репозиторій проєкту:
 
-## Deploy on Vercel
+[https://github.com/GennadiyTsekhmistro/addition-column-trainer](https://github.com/GennadiyTsekhmistro/addition-column-trainer)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Подальший розвиток
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Проєкт розробляється та поступово доповнюється новими можливостями для навчання й тренування навичок письмового додавання.
